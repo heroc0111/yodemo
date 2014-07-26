@@ -4,6 +4,7 @@ describe 'Controller: MainCtrl', ->
 
   # load the controller's module
   beforeEach module 'yodemo2App'
+  beforeEach module 'ui.bootstrap'
 
   MainCtrl = {}
   scope = {}
