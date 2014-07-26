@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       casperjs: {
-        files: ['test/integration/{,*}*.js'],
+        files: ['test/integration/{,*}*.coffee'],
         tasks: ['casperjs']
       },
       livereload: {
@@ -421,7 +421,7 @@ module.exports = function (grunt) {
         }
       },
       files: [
-        'test/integration/*.js'
+        'test/integration/*.coffee'
       ]
     },
   });
