@@ -48,6 +48,10 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
+      casperjs: {
+        files: ['test/integration/{,*}*.js'],
+        tasks: ['casperjs']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -408,9 +412,21 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.coffee',
         singleRun: true
       }
-    }
+    },
+
+    casperjs: {
+      options: {
+        async: {
+            parallel: false
+        }
+      },
+      files: [
+        'test/integration/*.js'
+      ]
+    },
   });
 
+  grunt.loadNpmTasks('grunt-casperjs');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -437,7 +453,8 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma'
+    'karma',
+    'casperjs'
   ]);
 
   grunt.registerTask('build', [
