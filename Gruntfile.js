@@ -425,6 +425,7 @@ module.exports = function (grunt) {
 
     casperjs: {
       options: {
+        casperjsOptions: ['--ssl-protocol=any'],
         async: {
             parallel: false
         }
