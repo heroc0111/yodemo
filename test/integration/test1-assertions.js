@@ -1,10 +1,10 @@
-casper.test.begin("Should be about Angular", 0, suite = function(test) {
+casper.test.begin("Should be about Angular", 0, function(test) {
   casper.start("http://localhost:9000/", function() {
     test.assertTextExists("todos");
     test.assertTextExists("Angular");
-    return test.assertTextDoesntExist("Backbone");
+    test.assertTextDoesntExist("Backbone");
   });
-  return casper.run(function() {
-    return test.done();
+  casper.run(function() {
+    test.done();
   });
 });
